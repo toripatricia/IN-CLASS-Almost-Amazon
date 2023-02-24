@@ -1,6 +1,8 @@
 import { showBooks } from '../pages/books';
 import { getBooks, booksOnSale } from '../api/bookData';
-import { getAuthors, favoriteAuthors } from '../api/authorData';
+import {
+  getAuthors, favoriteAuthors
+} from '../api/authorData';
 import { showAuthors } from '../pages/authors';
 import { signOut } from '../utils/auth';
 
@@ -36,6 +38,11 @@ const navigationEvents = () => {
     favoriteAuthors().then(showAuthors);
     console.warn('CLICKED AUTHORS');
   });
+
+  // // show author info button (AKA GET SINGLE AUTHOR)
+  // document.querySelector('#view-author-btn').addEventListener('click', () => {
+  //   getSingleAuthor().then(authorInfoCard);
+  // });
 
   // STRETCH: SEARCH
   document.querySelector('#search').addEventListener('keyup', (e) => {
