@@ -7,33 +7,33 @@ import { showAuthors } from '../pages/authors';
 import { signOut } from '../utils/auth';
 
 // navigation events
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   // LOGOUT BUTTON
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
 
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
-    booksOnSale().then(showBooks);
+    booksOnSale(user.uid).then(showBooks);
     console.warn('CLICKED SALE BOOKS');
   });
 
   // TODO: ALL BOOKS
   document.querySelector('#all-books').addEventListener('click', () => {
-    getBooks().then(showBooks);
+    getBooks(user.uid).then(showBooks);
     console.warn('CLICKED ALL BOOKS');
   });
 
   // ALL AUTHORS
   document.querySelector('#authors').addEventListener('click', () => {
-    getAuthors().then(showAuthors);
+    getAuthors(user.uid).then(showAuthors);
     console.warn('CLICKED AUTHORS');
   });
 
   // FAVORITE AUTHORS
   document.querySelector('#favorite-authors').addEventListener('click', () => {
-    favoriteAuthors().then(showAuthors);
-    console.warn('CLICKED AUTHORS');
+    favoriteAuthors(user.uid).then(showAuthors);
+    console.warn('CLICKED FAVORITE AUTHORS');
   });
 
   // // show author info button (AKA GET SINGLE AUTHOR)
